@@ -111,3 +111,40 @@ typedef struct {
 #define ADC_SQR1    (*((volatile unsigned long *) 0x50040030))
 #define TIM1        (*((volatile unsigned long *) 0x40012C00)) //timer 1
 #define ADC ((ADC_Typedef *) 0x50040000)
+
+
+
+
+
+
+
+#define RCC ((RCC_Typedef *) 0x40021000)
+#define RCC_CCIPR_I2C1SEL 0x00003000 // bits 12 & 13
+#define RCC_CCIPR_I2C1SEL_01 0x00001000 //bit 12
+#define RCC_APB1ENR1_I2C1EN (unsigned long)(1<<21)
+#define RCC_APB1RSTR1_I2C1RST (unsigned long)(1<<21)
+	
+#define I2C_CR1_PE (unsigned long)(1<<0) // peripheral enable
+#define I2C_CR1_ANFOFF (unsigned long)(1<<12) //analog noise filter off
+#define I2C_CR1_DNF 0x00000F00 //bits 8-ll digital noise filter
+#define I2C_CR1_ERRIE (unsigned long)(1<<7) // error interrupts enable
+#define I2C_CR1_SMBus (unsigned long)(1<<20) //SMBus host address enable
+#define	I2C_CR1_NOSTRETCH (unsigned long)(1<17) //clock stretching disbabled
+	
+#define I2C_TIMINGR_PRESC 0xF0000000 //timing prescaler (bits 31-28)
+#define I2C_OAR1_OA1EN (unsigned long)(1 << 15) // own address 1 enable
+#define I2C_OAR2_OA2EN (unsigned long)(1 << 15) // own address 2 enable
+
+#define I2C_CR2_AUTOEND (unsigned long)(1 << 25) // auto end
+#define I2C_CR2_ADD10 (unsigned long)(1 << 11) // 0:7-bit addressing mode 1:10-bit addressing mode
+#define I2C_CR2_NACK (unsigned long) (1 << 15) // 0:ACK is sent after current recieved byte 1:NACK is sent after current recieved byte
+#define I2C_CR2_SADD 0x000003FF // slave address bits
+#define I2C_CR2_NBYTES 0x00FF0000 // number of bytes
+#define I2C_CR2_RELOAD (unsigned long) (1 << 24) // 0:transfer is completed after nbytes data transferred 1:transfer not completed
+#define I2C_CR2_RD_WRN (unsigned long) (1 << 10) // transfer direction (master mode) 0:7bit 1:10bit
+#define I2C_CR2_START (unsigned long) (1 << 13) //0:no start gen 1:restart/start gen
+#define I2C_CR2_STOP (unsigned long) (1 << 14) //(master 0:no stop gen 1:stop after transfer)
+
+#define I2C_ICR_STOPCF (unsigned long) (1 << 5)
+#define I2C_ISR_STOPF (unsigned long) (1 << 5)
+#define I2C_ISR_BUSY (unsigned long) (1 << 15)
