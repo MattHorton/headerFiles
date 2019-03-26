@@ -19,6 +19,7 @@ typedef struct{
     __IO uint32_t   BRR;    // bit reset register
     __IO uint32_t   ASCR;   // analog switch control register
 } GPIO_Typedef;
+
 typedef struct {
 	//__IO uint(bits) name comment
 	__IO uint32_t CR[3];//control registers
@@ -31,6 +32,7 @@ typedef struct {
 	__IO uint32_t RDR;  //recieve data register
 	__IO uint32_t TDR;  //transmit data register
 } USART_Typedef;
+
 typedef struct {
 	__IO uint32_t ISR; //interrupt and status register
 	__IO uint32_t IER; // interrupt enable register
@@ -48,6 +50,7 @@ typedef struct {
 	__IO uint32_t DIFSEL; // differential mode selection register
 	__IO uint32_t CALFACT; //calibration factors
 } ADC_Typedef;
+
 typedef struct {
 	__IO uint32_t CR; // control register
 	__IO uint32_t ICSCR; // 
@@ -81,6 +84,7 @@ typedef struct {
 	__IO uint32_t CRRCR; // clock recovery RC register
 	__IO uint32_t CCIPR2; // peripherals independent clock configuration register
 }RCC_Typedef;
+
 typedef struct {
 	__IO uint32_t CR1; // control register 1
 	__IO uint32_t CR2; // control register 2
@@ -95,15 +99,58 @@ typedef struct {
 	__IO uint32_t TXDR; // transmit data register
 }I2C_Typedef;
 
-
+typedef struct {
+	__IO uint32_t ISR;
+	__IO uint32_t IFCR;
+	
+	__IO uint32_t CCR1;
+	__IO uint32_t CNDTR1;
+	__IO uint32_t CPAR1;
+	__IO uint32_t CMAR1;
+	uint32_t rev0;
+	__IO uint32_t CCR2;
+	__IO uint32_t CNDTR2;
+	__IO uint32_t CPAR2;
+	__IO uint32_t CMAR2;
+	uint32_t rev1;
+	__IO uint32_t CCR3;
+	__IO uint32_t CNDTR3;
+	__IO uint32_t CPAR3;
+	__IO uint32_t CMAR3;
+	uint32_t rev2;
+	__IO uint32_t CCR4;
+	__IO uint32_t CNDTR4;
+	__IO uint32_t CPAR4;
+	__IO uint32_t CMAR4;
+	uint32_t rev3;
+	__IO uint32_t CCR5;
+	__IO uint32_t CNDTR5;
+	__IO uint32_t CPAR5;
+	__IO uint32_t CMAR5;
+	uint32_t rev4;
+	__IO uint32_t CCR6;
+	__IO uint32_t CNDTR6;
+	__IO uint32_t CPAR6;
+	__IO uint32_t CMAR6;
+	uint32_t rev5;
+	__IO uint32_t CCR7;
+	__IO uint32_t CNDTR7;
+	__IO uint32_t CPAR7;
+	__IO uint32_t CMAR7;
+	uint32_t rev6[5];
+	__IO uint32_t CSELR;
+}DMA_Typedef;
+	
 #define RCC_AHB2ENR (*((volatile unsigned long *) 0x4002104C)) //GPIO Enable Reg
 #define GPIOB_MODER (*((volatile unsigned long *) 0x48000400)) //GPIO B Mode Reg
 #define GPIOB_BSRR (*((volatile unsigned long *) 0x48000418)) //GPIO B Output Bit set/reset reg
 #define LED_ON (1 << 3)
 #define LED_OFF (1 << (3+16))
+
 #define GPIOA_MODER (*((volatile unsigned long *) 0x48000000)) //GPIO A Mode Reg
 #define GPIOA_PUPDR (*((volatile unsigned long *) 0x4800000C)) //GPIO pullup/down
 #define GPIOA_AFRH 	(*((volatile unsigned long *) 0x48000024))	 //alternate function including PA8
+	
 #define MASTER_ADC1 (*((volatile unsigned long *) 0x50040000))
 #define ADC_CR      (*((volatile unsigned long *) 0x50040008))
 #define ADC_CCR     (*((volatile unsigned long *) 0x50040300))
@@ -111,12 +158,6 @@ typedef struct {
 #define ADC_SQR1    (*((volatile unsigned long *) 0x50040030))
 #define TIM1        (*((volatile unsigned long *) 0x40012C00)) //timer 1
 #define ADC ((ADC_Typedef *) 0x50040000)
-
-
-
-
-
-
 
 #define RCC ((RCC_Typedef *) 0x40021000)
 #define RCC_CCIPR_I2C1SEL 0x00003000 // bits 12 & 13
