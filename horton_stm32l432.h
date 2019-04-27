@@ -144,6 +144,7 @@ typedef struct {
 #define RCC_AHB2ENR (*((volatile unsigned long *) 0x4002104C)) //GPIO Enable Reg
 #define GPIOB_MODER (*((volatile unsigned long *) 0x48000400)) //GPIO B Mode Reg
 #define GPIOB_BSRR (*((volatile unsigned long *) 0x48000418)) //GPIO B Output Bit set/reset reg
+#define GPIOB ((GPIO_Typedef*) 0x48000400)
 #define LED_ON (1 << 3)
 #define LED_OFF (1 << (3+16))
 
