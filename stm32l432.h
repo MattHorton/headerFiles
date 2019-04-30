@@ -1106,16 +1106,17 @@ typedef struct {
 	__IO uint32_t CSELR;
 }DMA_Typedef;
 	
-#define RCC_AHB2ENR (*((volatile unsigned long *) 0x4002104C)) //GPIO Enable Reg
-#define GPIOB_MODER (*((volatile unsigned long *) 0x48000400)) //GPIO B Mode Reg
-#define GPIOB_BSRR (*((volatile unsigned long *) 0x48000418)) //GPIO B Output Bit set/reset reg
+//#define RCC_AHB2ENR (*((volatile unsigned long *) 0x4002104C)) //GPIO Enable Reg
+//#define GPIOB_MODER (*((volatile unsigned long *) 0x48000400)) //GPIO B Mode Reg
+//#define GPIOB_BSRR (*((volatile unsigned long *) 0x48000418)) //GPIO B Output Bit set/reset reg
 #define GPIOB ((GPIO_Typedef*) 0x48000400)
+#define GPIOA ((GPIO_Typedef*) 0x48000000)
 #define LED_ON (1 << 3)
 #define LED_OFF (1 << (3+16))
 
-#define GPIOA_MODER (*((volatile unsigned long *) 0x48000000)) //GPIO A Mode Reg
-#define GPIOA_PUPDR (*((volatile unsigned long *) 0x4800000C)) //GPIO pullup/down
-#define GPIOA_AFRH 	(*((volatile unsigned long *) 0x48000024))	 //alternate function including PA8
+//#define GPIOA_MODER (*((volatile unsigned long *) 0x48000000)) //GPIO A Mode Reg
+//#define GPIOA_PUPDR (*((volatile unsigned long *) 0x4800000C)) //GPIO pullup/down
+//#define GPIOA_AFRH 	(*((volatile unsigned long *) 0x48000024))	 //alternate function including PA8
 	
 #define MASTER_ADC1 (*((volatile unsigned long *) 0x50040000))
 #define ADC_CR      (*((volatile unsigned long *) 0x50040008))
@@ -1155,3 +1156,11 @@ typedef struct {
 #define I2C_ICR_STOPCF (unsigned long) (1 << 5)
 #define I2C_ISR_STOPF (unsigned long) (1 << 5)
 #define I2C_ISR_BUSY (unsigned long) (1 << 15)
+	
+#define SYSCFG_EXTICR1_EXTI3 (unsigned long) 0x00007000;
+#define SYSCFG_EXTICR1_EXTI3_PA (unsigned long) 0x00007000;
+
+#define RCC_AHB2ENR_GPIOAEN (unsigned long) (1<<0);
+#define RCC_AHB2ENR_GPIOBEN (unsigned long) (1<<1);
+
+#define GPIO_ODR_ODR_2 (unsigned long) (1 << 2);
