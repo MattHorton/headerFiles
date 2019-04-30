@@ -1164,3 +1164,8 @@ typedef struct {
 #define RCC_AHB2ENR_GPIOBEN (unsigned long) (1<<1);
 
 #define GPIO_ODR_ODR_2 (unsigned long) (1 << 2);
+
+#define ADC_CR_DEEPPWD (unsigned long) (1 << 29);
+#define ADC_CR_ADVREGEN (unsigned long) (1 << 28);
+
+#define ADC_ISR_EOC (unsigned long)(1 << 2);
